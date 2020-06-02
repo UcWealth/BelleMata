@@ -1,0 +1,43 @@
+@model BelleMata.Models.RequestModels.CreateUserRequestModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+	<div class="col-md-4">
+
+				<form method="post" action="Register">
+                    <h4>Create New Account</h4>
+                    <hr>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+					<div class="form-control">
+						<input asp-for="Email" class="form-control" type="text" placeholder="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+
+					<div class="form-control">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+						<input class=" form-control" asp-for="Password" type="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+
+                    <div class="form-control">
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+						<input class="form-control" asp-for="ConfirmPassword" type="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+
+				</form>

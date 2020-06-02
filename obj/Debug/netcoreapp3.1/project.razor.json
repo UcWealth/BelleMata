@@ -20551,6 +20551,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\ucwealth\\source\\repos\\BelleMata\\Views\\Accounts\\Register.cshtml",
+      "TargetPath": "Views\\Accounts\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\ucwealth\\source\\repos\\BelleMata\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"

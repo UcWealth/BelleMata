@@ -27,7 +27,7 @@ namespace BelleMata.Controllers
                 UserName = model.Email,
                 Email = model.Email,
             };
-            await _userManager.CreateAsync(user, model.Password);
+            var result = await _userManager.CreateAsync(user, model.Password);
             return RedirectToAction("Index", "Home");
         }
     }

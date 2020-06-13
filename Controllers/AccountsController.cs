@@ -1,4 +1,7 @@
+using System.Threading.Tasks;
+using BelleMata.Entities;
 using BelleMata.Models.RequestModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BelleMata.Controllers
@@ -6,16 +9,26 @@ namespace BelleMata.Controllers
     [Controller]
     public class AccountsController : Controller
     {
-        
+        private readonly UserManager<ApplicationUser> _userManager;
+        public AccountsController(UserManager<ApplicationUser> userManager)
+        {
+            _userManager = userManager;
+        }
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Register(CreateUserRequestModel model)
+        public async Task<IActionResult> Register(CreateUserRequestModel model)
         {
-            return View();
+            ApplicationUser user = new ApplicationUser
+            {
+                UserName = model.Email,
+                Email = model.Email,
+            };
+            await _userManager.CreateAsync(user, model.Password);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

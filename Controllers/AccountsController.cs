@@ -14,6 +14,12 @@ namespace BelleMata.Controllers
         {
             _userManager = userManager;
         }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View()
+        }
         public IActionResult Register()
         {
             return View();

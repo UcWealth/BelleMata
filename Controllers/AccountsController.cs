@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using BelleMata.Entities;
 using BelleMata.Models.RequestModels;
@@ -10,9 +11,11 @@ namespace BelleMata.Controllers
     public class AccountsController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        public AccountsController(UserManager<ApplicationUser> userManager)
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        public AccountsController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -20,11 +23,11 @@ namespace BelleMata.Controllers
         {
             return View();
         }
-        // [HttpPost]
-        // public IActionResult Login()
-        // {
-            //this is where you add the action for when users try to login
-        // }
+        [HttpPost]
+        public IActionResult Login(LoginRequestModel model)
+        {
+            throw new NotImplementedException();
+        }
         public IActionResult Register()
         {
             return View();

@@ -24,9 +24,18 @@ namespace BelleMata.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(LoginRequestModel model)
+        public async Task<IActionResult> Login(LoginRequestModel model)
         {
-            throw new NotImplementedException();
+            var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, lockoutOnFailure:false);
+            if(result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt.");
+                return View();
+            }
         }
         public IActionResult Register()
         {

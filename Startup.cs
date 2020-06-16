@@ -30,7 +30,9 @@ namespace BelleMata
             services.AddDbContextPool<ApplicationDbContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")
             ));
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => {
+                options.SignIn
+            }).AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
         }
 

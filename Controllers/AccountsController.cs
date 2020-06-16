@@ -20,11 +20,11 @@ namespace BelleMata.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Login()
-        {
+        // [HttpPost]
+        // public IActionResult Login()
+        // {
             //this is where you add the action for when users try to login
-        }
+        // }
         public IActionResult Register()
         {
             return View();
